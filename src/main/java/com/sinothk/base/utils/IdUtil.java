@@ -21,7 +21,7 @@ public class IdUtil {
 //        System.out.println("id = " + IdUtil.getId());
 //    }
 
-    private static String middle = "";
+    private static String middle;
 
     static {
         middle = MathUtils.makeUpNewData(Math.abs(NetworkUtils.getHostIP().hashCode()) + "", 4) +   //4位IP地址hash

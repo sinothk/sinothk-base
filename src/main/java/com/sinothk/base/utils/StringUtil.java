@@ -99,7 +99,6 @@ public class StringUtil {
             }
         } catch (Exception e) {
         }
-
         return "";
     }
 }

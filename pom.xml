@@ -6,11 +6,9 @@
 
     <groupId>com.sinothk.base</groupId>
     <artifactId>sinothk-base</artifactId>
-    <version>1.3</version>
+    <version>1.5</version>
 
     <dependencies>
-
-
         <!--JWT依赖-->
         <!--JWT-->
         <dependency>
@@ -24,7 +22,6 @@
             <artifactId>jjwt</artifactId>
             <version>0.9.0</version>
         </dependency>
-
     </dependencies>
 
 

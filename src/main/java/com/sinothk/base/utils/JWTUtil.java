@@ -1,6 +1,7 @@
 package com.sinothk.base.utils;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
@@ -66,6 +67,32 @@ public class JWTUtil {
                 .sign(algorithm);
     }
 
+    public static String sign(String username, String secret, String[] roles, String[] promise) {
+
+
+        Algorithm algorithm = Algorithm.HMAC256(secret);
+        // 附带username信息
+
+        JWTCreator.Builder jb = JWT.create();
+        jb.withClaim("username", username);
+
+        if (roles != null && roles.length > 0) {
+            jb.withArrayClaim("roles", roles);
+        }
+
+        if (promise != null && promise.length > 0) {
+            jb.withArrayClaim("promise", promise);
+        }
+
+        Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
+        return jb.withExpiresAt(date).sign(algorithm);
+//        return JWT.create()
+//                .withClaim("username", username)
+//                .withArrayClaim("role", role)
+//                .withExpiresAt(date)
+//                .sign(algorithm);
+    }
+
     /**
      * 获得token中的信息无需secret解密也能获得
      *
@@ -80,7 +107,6 @@ public class JWTUtil {
 //            return null;
 //        }
 //    }
-
     public static String getUsername(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);

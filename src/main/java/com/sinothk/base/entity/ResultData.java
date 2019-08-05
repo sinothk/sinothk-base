@@ -22,7 +22,7 @@ public class ResultData<T> implements Serializable {
     }
 
     public static <E> ResultData<E> success(E data) {
-        return new ResultData<E>(ErrorCode.SUCCESS, "�ɹ�", data);
+        return new ResultData<E>(ErrorCode.SUCCESS, "成功", data);
     }
 
 

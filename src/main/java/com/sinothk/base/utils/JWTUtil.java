@@ -10,17 +10,17 @@ import java.util.Date;
 
 public class JWTUtil {
 
-    public static void main(String[] args) {
-
-        String token = JWTUtil.sign("liangyt", "123456");
-        System.out.println("token = " + token);
-
-        System.out.println("UserAccount = " + JWTUtil.getUserAccount(token));
-        System.out.println("Username = " + JWTUtil.getUsername(token));
-
-        boolean isOk = JWTUtil.verify(token, "liangyt", "123456");
-        System.out.println("验证 = " + isOk);
-    }
+//    public static void main(String[] args) {
+//
+//        String token = JWTUtil.sign("liangyt", "123456");
+//        System.out.println("token = " + token);
+//
+////        System.out.println("UserAccount = " + JWTUtil.getUserAccount(token));
+//        System.out.println("Username = " + JWTUtil.getUsername(token));
+//
+//        boolean isOk = JWTUtil.verify(token, "liangyt", "123456");
+//        System.out.println("验证 = " + isOk);
+//    }
 
     /**
      * 校验token是否正确
@@ -60,7 +60,7 @@ public class JWTUtil {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         // 附带username信息
         return JWT.create()
-                .withClaim("account", "15285536453")
+//                .withClaim("account", "15285536453")
                 .withClaim("username", username)
                 .withExpiresAt(date)
                 .sign(algorithm);
@@ -71,14 +71,15 @@ public class JWTUtil {
      *
      * @return token中包含的用户名
      */
-    public static String getUserAccount(String token) {
-        try {
-            DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("account").asString();
-        } catch (JWTDecodeException e) {
-            return null;
-        }
-    }
+//    @Deprecated
+//    public static String getUserAccount(String token) {
+//        try {
+//            DecodedJWT jwt = JWT.decode(token);
+//            return jwt.getClaim("account").asString();
+//        } catch (JWTDecodeException e) {
+//            return null;
+//        }
+//    }
 
     public static String getUsername(String token) {
         try {

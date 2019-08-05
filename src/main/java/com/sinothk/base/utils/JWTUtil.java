@@ -10,22 +10,17 @@ import java.util.Date;
 
 public class JWTUtil {
 
+    public static void main(String[] args) {
 
-//    public static void main(String[] args) {
-//
-//        String token = JWTUtil.sign("liangyt", "123456");
-//        System.out.println("token = " + token);
-//
-//        System.out.println("UserAccount = " + JWTUtil.getUserAccount(token));
-//        System.out.println("Username = " + JWTUtil.getUsername(token));
-//
-//
-//        boolean isOk = JWTUtil.verify(token, "liangyt", "123456");
-//        System.out.println("验证 = " + isOk);
-//    }
+        String token = JWTUtil.sign("liangyt", "123456");
+        System.out.println("token = " + token);
 
-    // 过期时间5分钟
-    private static final long EXPIRE_TIME = 15 * 24 * 60 * 60 * 1000;
+        System.out.println("UserAccount = " + JWTUtil.getUserAccount(token));
+        System.out.println("Username = " + JWTUtil.getUsername(token));
+
+        boolean isOk = JWTUtil.verify(token, "liangyt", "123456");
+        System.out.println("验证 = " + isOk);
+    }
 
     /**
      * 校验token是否正确
@@ -49,6 +44,9 @@ public class JWTUtil {
         }
     }
 
+    // 过期时间15天
+    private static final long EXPIRE_TIME = 15 * 24 * 60 * 60 * 1000;
+
     /**
      * 生成签名,5min后过期
      *
@@ -66,7 +64,6 @@ public class JWTUtil {
                 .withClaim("username", username)
                 .withExpiresAt(date)
                 .sign(algorithm);
-
     }
 
     /**

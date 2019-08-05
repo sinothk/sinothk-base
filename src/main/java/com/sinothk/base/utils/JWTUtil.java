@@ -67,7 +67,7 @@ public class JWTUtil {
                 .sign(algorithm);
     }
 
-    public static String sign(String username, String secret, String[] roles, String[] promise) {
+    public static String sign(String username, String secret, String[] roles, String[] permissions) {
 
 
         Algorithm algorithm = Algorithm.HMAC256(secret);
@@ -80,8 +80,8 @@ public class JWTUtil {
             jb.withArrayClaim("roles", roles);
         }
 
-        if (promise != null && promise.length > 0) {
-            jb.withArrayClaim("promise", promise);
+        if (permissions != null && permissions.length > 0) {
+            jb.withArrayClaim("permissions", permissions);
         }
 
         Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);

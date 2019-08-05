@@ -4,6 +4,8 @@ import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -227,5 +229,11 @@ public class IdUtil {
             shortBuffer.append(chars[x % 0x3E]);
         }
         return shortBuffer.toString();
+    }
+
+    // =====================================================
+
+    public static String getIdByDateTimeString() {
+        return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
     }
 }

@@ -1,6 +1,7 @@
 package com.sinothk.base.entity;
 
 
+import com.alibaba.fastjson.JSON;
 import com.sinothk.base.keyValue.ErrorCode;
 
 import java.io.Serializable;
@@ -72,7 +73,7 @@ public class ResultData<T> implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ResultData [code=" + code + ", msg=" + msg + ", data=" + data + "]";
+		return JSON.toJSONString(this);
 	}
 	
 	private void logPrint(ResultData<T> resultData) {

@@ -1,5 +1,7 @@
 package com.sinothk.base.entity;
 
+import com.alibaba.fastjson.JSON;
+
 public class FileAttrEntity {
 
     private String fileAllName;
@@ -52,12 +54,6 @@ public class FileAttrEntity {
 
     @Override
     public String toString() {
-        return "FileAttrEntity{" +
-                "fileAllName='" + fileAllName + '\'' +
-                ", fileName='" + fileName + '\'' +
-                ", fileType='" + fileType + '\'' +
-                ", absolutePath='" + absolutePath + '\'' +
-                ", fileSize=" + fileSize +
-                '}';
+        return JSON.toJSONString(this);
     }
 }

@@ -1,5 +1,7 @@
 package com.sinothk.base.entity;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * <pre>
  *  创建:  梁玉涛 2019/4/30 on 14:34
@@ -50,5 +52,10 @@ public class PageData<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
     }
 }

@@ -33,7 +33,5 @@ public class ErrorCode {
         //错误
         errorMap.put(ERROR_COMM, "服务端错误");
         errorMap.put(ERROR_PWD, "密码错误");
-
-
     }
 }

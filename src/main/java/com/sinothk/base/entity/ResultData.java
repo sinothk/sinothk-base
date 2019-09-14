@@ -9,11 +9,11 @@ import java.io.Serializable;
 public class ResultData<T> implements Serializable {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	private int code;
+    private int code;
 
     private String msg;
 
@@ -39,44 +39,48 @@ public class ResultData<T> implements Serializable {
         return new ResultData<E>(errorCode, ErrorCode.getErrorMsg(errorCode), null);
     }
 
+    public static <E> ResultData<E> error(int errorCode, String msg) {
+        return new ResultData<E>(errorCode, msg, null);
+    }
+
     public ResultData(int code, String msg, T data) {
         this.code = code;
         this.data = data;
         this.msg = msg;
-        
+
         logPrint(this);
     }
 
-	public int getCode() {
-		return code;
-	}
+    public int getCode() {
+        return code;
+    }
 
-	public void setCode(int code) {
-		this.code = code;
-	}
+    public void setCode(int code) {
+        this.code = code;
+    }
 
-	public String getMsg() {
-		return msg;
-	}
+    public String getMsg() {
+        return msg;
+    }
 
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 
-	public T getData() {
-		return data;
-	}
+    public T getData() {
+        return data;
+    }
 
-	public void setData(T data) {
-		this.data = data;
-	}
+    public void setData(T data) {
+        this.data = data;
+    }
 
-	@Override
-	public String toString() {
-		return JSON.toJSONString(this);
-	}
-	
-	private void logPrint(ResultData<T> resultData) {
-		new Thread(() -> System.out.println(toString())).start();
-	}
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
+
+    private void logPrint(ResultData<T> resultData) {
+        new Thread(() -> System.out.println(toString())).start();
+    }
 }

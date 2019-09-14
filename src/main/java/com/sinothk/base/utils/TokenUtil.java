@@ -1,5 +1,8 @@
 package com.sinothk.base.utils;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -30,10 +33,19 @@ public class TokenUtil {
     public static String createToken(String userName) {
         try {
             return Jwts.builder().setSubject(SUBJECT)
-                    .claim("", userName)
+                    .claim("userName", userName)
                     .setIssuedAt(new Date(System.currentTimeMillis() + EXPIRE_TIME))
                     .signWith(SignatureAlgorithm.HS256, APP_SECRET).compact();
         } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String getUserName(String token) {
+        try {
+            DecodedJWT jwt = JWT.decode(token);
+            return jwt.getClaim("userName").asString();
+        } catch (JWTDecodeException e) {
             return null;
         }
     }

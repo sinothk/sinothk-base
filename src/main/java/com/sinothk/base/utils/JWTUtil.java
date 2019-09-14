@@ -9,19 +9,20 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.util.Date;
 
+@Deprecated
 public class JWTUtil {
 
 //    public static void main(String[] args) {
-//
-//        String token = JWTUtil.sign("liangyt", "123456");
-//        System.out.println("token = " + token);
-//
-////        System.out.println("UserAccount = " + JWTUtil.getUserAccount(token));
-//        System.out.println("Username = " + JWTUtil.getUsername(token));
-//
-//        boolean isOk = JWTUtil.verify(token, "liangyt", "123456");
-//        System.out.println("验证 = " + isOk);
-//    }
+////
+////        String token = JWTUtil.sign("liangyt", "123456");
+////        System.out.println("token = " + token);
+////
+//////        System.out.println("UserAccount = " + JWTUtil.getUserAccount(token));
+////        System.out.println("Username = " + JWTUtil.getUsername(token));
+////
+////        boolean isOk = JWTUtil.verify(token, "liangyt", "123456");
+////        System.out.println("验证 = " + isOk);
+////    }
 
     /**
      * 校验token是否正确

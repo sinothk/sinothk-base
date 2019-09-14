@@ -69,7 +69,6 @@ public class JWTUtil {
 
     public static String sign(String username, String secret, String[] roles, String[] permissions) {
 
-
         Algorithm algorithm = Algorithm.HMAC256(secret);
         // 附带username信息
 

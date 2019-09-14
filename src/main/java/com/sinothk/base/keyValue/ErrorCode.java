@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ErrorCode {
+    // TOKEN
+    public static final int TOKEN_NOT_EMPTY = 1001;
+    public static final int TOKEN_ERROR = 1002;
 
     // 存在
     public static final int EXIST_ACCOUNT = 701;
@@ -26,6 +29,9 @@ public class ErrorCode {
     }
 
     static {
+        errorMap.put(TOKEN_NOT_EMPTY, "token为空");
+        errorMap.put(TOKEN_ERROR, "token失效，请尝试重新登录");
+
         // 不存在/存在
         errorMap.put(NOT_EXIST_ACCOUNT, "账号不存在");
         errorMap.put(EXIST_ACCOUNT, "账号已存在");

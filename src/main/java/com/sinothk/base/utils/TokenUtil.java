@@ -12,7 +12,8 @@ import java.util.Date;
 public class TokenUtil {
 
     // 过期时间15天
-    private static final long EXPIRE_TIME = 60 * 1000;//15 * 24 * 60 * 60 * 1000; //
+    public static final long EXPIRE_TIME_15D = 15 * 24 * 60 * 60 * 1000; //
+    //
     private static final String SUBJECT = "gclass";
     private static final String APP_SECRET = "xd666";
 
@@ -50,20 +51,20 @@ public class TokenUtil {
         }
     }
 
-//    public static void main(String[] args) {
-//
-//        String token = TokenUtil.createToken(EXPIRE_TIME, "liangyt");
-//        System.out.println("token = " + token);
-//
-////        String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnY2xhc3MiLCJ1c2VyTmFtZSI6ImxpYW5neXQiLCJleHAiOjE1Njg0Nzg2MTl9.Lpw7SoGUo7xZ0GoHfxubyvyReUdvk8osqDszF5mzB7Q";
-//        Claims claims = TokenUtil.checkToken(token);
-//
-//        if (claims == null) {
-//            // 错误token，超时都返回null
-//            System.out.println("验证失败");
-//        } else {
-//            System.out.println("验证通过");
-//            System.out.println("userName = " + TokenUtil.getUserName(token));
-//        }
-//    }
+    public static void main(String[] args) {
+
+        String token = TokenUtil.createToken(TokenUtil.EXPIRE_TIME_15D, "liangyt");
+        System.out.println("token = " + token);
+
+//        String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnY2xhc3MiLCJ1c2VyTmFtZSI6ImxpYW5neXQiLCJleHAiOjE1Njg0Nzg2MTl9.Lpw7SoGUo7xZ0GoHfxubyvyReUdvk8osqDszF5mzB7Q";
+        Claims claims = TokenUtil.checkToken(token);
+
+        if (claims == null) {
+            // 错误token，超时都返回null
+            System.out.println("验证失败");
+        } else {
+            System.out.println("验证通过");
+            System.out.println("userName = " + TokenUtil.getUserName(token));
+        }
+    }
 }

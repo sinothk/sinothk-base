@@ -8,6 +8,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class TokenUtil {
 
@@ -42,6 +43,17 @@ public class TokenUtil {
         }
     }
 
+    public static String createToken(long expiryTime, HashMap<String, Object> map) {
+        try {// https://www.cnblogs.com/zjutzz/p/5790180.html
+            return Jwts.builder().setSubject(SUBJECT)
+                    .addClaims(map)
+                    .setExpiration(new Date(System.currentTimeMillis() + expiryTime))
+                    .signWith(SignatureAlgorithm.HS256, APP_SECRET).compact();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public static String getUserName(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
@@ -51,20 +63,28 @@ public class TokenUtil {
         }
     }
 
-    public static void main(String[] args) {
-
-        String token = TokenUtil.createToken(TokenUtil.EXPIRE_TIME_15D, "liangyt");
-        System.out.println("token = " + token);
-
-//        String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnY2xhc3MiLCJ1c2VyTmFtZSI6ImxpYW5neXQiLCJleHAiOjE1Njg0Nzg2MTl9.Lpw7SoGUo7xZ0GoHfxubyvyReUdvk8osqDszF5mzB7Q";
-        Claims claims = TokenUtil.checkToken(token);
-
-        if (claims == null) {
-            // 错误token，超时都返回null
-            System.out.println("验证失败");
-        } else {
-            System.out.println("验证通过");
-            System.out.println("userName = " + TokenUtil.getUserName(token));
-        }
-    }
+//    public static void main(String[] args) {
+//
+////        String token = TokenUtil.createToken(TokenUtil.EXPIRE_TIME_15D, "liangyt");
+//
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("userAccount", 10000);
+//        map.put("userName", "liangyt");
+//        map.put("userRoles", new String[]{"Admin", "MANAGER"});
+//
+//        String token = TokenUtil.createToken(TokenUtil.EXPIRE_TIME_15D, map);
+//
+//        System.out.println("token = " + token);
+//
+////        String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnY2xhc3MiLCJ1c2VyTmFtZSI6ImxpYW5neXQiLCJleHAiOjE1Njg0Nzg2MTl9.Lpw7SoGUo7xZ0GoHfxubyvyReUdvk8osqDszF5mzB7Q";
+//        Claims claims = TokenUtil.checkToken(token);
+//
+//        if (claims == null) {
+//            // 错误token，超时都返回null
+//            System.out.println("验证失败");
+//        } else {
+//            System.out.println("验证通过");
+//            System.out.println("userName = " + TokenUtil.getUserName(token));
+//        }
+//    }
 }

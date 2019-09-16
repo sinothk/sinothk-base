@@ -13,17 +13,17 @@ import java.util.UUID;
  */
 public class IdUtil {
 
-//    public static void main(String[] args) {
-//        System.out.println("randomIdByUUID = " + IdUtil.getRandomIdByUUID());
-//
-//        System.out.println("increaseIdByCurrentTimeMillis = " + IdUtil.getIncreaseIdByCurrentTimeMillis());
-//
-//        System.out.println("increaseIdByNanoTime = " + IdUtil.getIncreaseIdByNanoTime());
-//
-//        System.out.println("id = " + IdUtil.getId());
-//
-//        System.out.println("uniqueId = " + IdUtil.getUniqueCode());
-//    }
+    public static void main(String[] args) {
+        System.out.println("randomIdByUUID = " + IdUtil.getRandomIdByUUID());
+
+        System.out.println("increaseIdByCurrentTimeMillis = " + IdUtil.getIncreaseIdByCurrentTimeMillis());
+
+        System.out.println("increaseIdByNanoTime = " + IdUtil.getIncreaseIdByNanoTime());
+
+        System.out.println("id = " + IdUtil.getId());
+
+        System.out.println("uniqueId = " + IdUtil.getUniqueCode());
+    }
 
     private static String middle;
 
@@ -76,7 +76,7 @@ public class IdUtil {
         return getIncreaseIdByNanoTime();
     }
 
-    private static String getUniqueCode() {
+    public static String getUniqueCode() {
         return generateShortUuid();
     }
 

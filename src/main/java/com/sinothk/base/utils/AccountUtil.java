@@ -22,37 +22,36 @@ public class AccountUtil {
         return accountSet;
     }
 
-    public static long create() {
-        List<Long> list = new ArrayList<>(accountSet);
-        Collections.sort(list);
-
-        long newId = list.get(list.size() - 1) + 1;
-
-        Set<Long> set = getInitAccountSet();//new TreeSet<>();
-
-        while (!set.contains(newId)) {
-            newId += 1;
-        }
-
-        accountSet.add(newId);
-
-        return newId;
-    }
-
+    /**
+     * 初始化：查询现有账号，在现有数据基础上继续加1
+     *
+     * @param initSet
+     */
     public static void init(Set<Long> initSet) {
         accountSet.clear();
-//        if (initSet == null || initSet.size() == 0) {
-//            initSet = new HashSet<>();
-//            initSet.add(10000L);
-//        }
         accountSet.addAll(initSet);
     }
 
-    private static Set<Long> getInitAccountSet() {
-        Set<Long> set = new HashSet<>();
-        set.add(99999L);
-        set.add(100000L);
-        set.add(88888888L);
-        return set;
+    /**
+     * 创建账号
+     *
+     * @param keepAccountSet 系统预留账号集合
+     * @return
+     */
+    public static long create(Set<Long> keepAccountSet) {
+        List<Long> list = new ArrayList<>(accountSet);
+        Collections.sort(list);
+
+        // 现有账号 +1
+        long newId = list.get(list.size() - 1) + 1;
+
+        // 如果新账号为系统预留账号，则继续 +1
+        while (keepAccountSet.contains(newId)) {
+            newId += 1;
+        }
+        accountSet.add(newId);
+        return newId;
     }
+
+
 }

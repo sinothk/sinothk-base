@@ -27,6 +27,13 @@ public class AccountUtil {
         Collections.sort(list);
 
         long newId = list.get(list.size() - 1) + 1;
+
+        Set<Long> set = getInitAccountSet();//new TreeSet<>();
+
+        while (!set.contains(newId)) {
+            newId += 1;
+        }
+
         accountSet.add(newId);
 
         return newId;
@@ -34,11 +41,18 @@ public class AccountUtil {
 
     public static void init(Set<Long> initSet) {
         accountSet.clear();
-
-        if (initSet == null || initSet.size() == 0) {
-            initSet = new HashSet<>();
-            initSet.add(10000L);
-        }
+//        if (initSet == null || initSet.size() == 0) {
+//            initSet = new HashSet<>();
+//            initSet.add(10000L);
+//        }
         accountSet.addAll(initSet);
+    }
+
+    private static Set<Long> getInitAccountSet() {
+        Set<Long> set = new HashSet<>();
+        set.add(99999L);
+        set.add(100000L);
+        set.add(88888888L);
+        return set;
     }
 }

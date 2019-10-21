@@ -42,6 +42,10 @@ public class AccountUtil {
         List<Long> list = new ArrayList<>(accountSet);
         Collections.sort(list);
 
+        if (list.size() == 0) {
+            list.add(10000L);
+        }
+
         // 现有账号 +1
         long newId = list.get(list.size() - 1) + 1;
 
@@ -49,6 +53,8 @@ public class AccountUtil {
         while (keepAccountSet.contains(newId)) {
             newId += 1;
         }
+
+
         accountSet.add(newId);
         return newId;
     }

@@ -54,10 +54,20 @@ public class TokenUtil {
         }
     }
 
+    @Deprecated
     public static String getUserName(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
             return jwt.getClaim("userName").asString();
+        } catch (JWTDecodeException e) {
+            return null;
+        }
+    }
+
+    public static String getTokenValue(String token, String key) {
+        try {
+            DecodedJWT jwt = JWT.decode(token);
+            return jwt.getClaim(key).asString();
         } catch (JWTDecodeException e) {
             return null;
         }

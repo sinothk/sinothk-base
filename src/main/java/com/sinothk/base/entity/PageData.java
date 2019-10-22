@@ -17,6 +17,9 @@ public class PageData<T> {
     //每页的数量
     private int pageSize;
 
+    // 总条数
+    private int total;
+
     //是否有下一页
     private boolean hasMore;
 
@@ -52,6 +55,14 @@ public class PageData<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     @Override

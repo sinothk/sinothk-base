@@ -13,7 +13,7 @@
 
     <groupId>com.sinothk.base</groupId>
     <artifactId>sinothk-base</artifactId>
-    <version>2.19.1101</version>
+    <version>2.19.1102</version>
 
     <dependencies>
 

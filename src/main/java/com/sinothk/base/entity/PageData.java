@@ -56,7 +56,7 @@ public class PageData<T> {
         return data;
     }
 
-    public void setData(ArrayList<T> data) {
+    public void setData(List<T> data) {
         this.data = data;
     }
 

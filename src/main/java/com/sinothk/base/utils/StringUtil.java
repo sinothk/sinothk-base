@@ -101,4 +101,16 @@ public class StringUtil {
         }
         return "";
     }
+
+    /**
+     * 判断字符串是否是电子邮箱地址
+     *
+     * @param email
+     * @return
+     */
+    public static boolean isEmail(String email) {
+        if (email == null || "".equals(email)) return false;
+        String regex = "\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+        return email.matches(regex);
+    }
 }

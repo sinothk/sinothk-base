@@ -2,6 +2,9 @@ package com.sinothk.base.entity;
 
 import com.alibaba.fastjson.JSON;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <pre>
  *  创建:  梁玉涛 2019/4/30 on 14:34
@@ -11,8 +14,8 @@ import com.alibaba.fastjson.JSON;
  * <pre>
  */
 public class PageData<T> {
-    
-	//当前页
+
+    //当前页
     private int pageNum;
     //每页的数量
     private int pageSize;
@@ -23,7 +26,7 @@ public class PageData<T> {
     //是否有下一页
     private boolean hasMore;
 
-    private T data;
+    private List<T> data;
 
     public int getPageNum() {
         return pageNum;
@@ -49,11 +52,11 @@ public class PageData<T> {
         this.hasMore = hasMore;
     }
 
-    public T getData() {
+    public List<T> getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(ArrayList<T> data) {
         this.data = data;
     }
 

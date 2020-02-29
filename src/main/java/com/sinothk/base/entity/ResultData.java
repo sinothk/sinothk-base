@@ -47,8 +47,6 @@ public class ResultData<T> implements Serializable {
         this.code = code;
         this.data = data;
         this.msg = msg;
-
-        logPrint(this);
     }
 
     public int getCode() {
@@ -80,7 +78,7 @@ public class ResultData<T> implements Serializable {
         return JSON.toJSONString(this);
     }
 
-    private void logPrint(ResultData<T> resultData) {
-        new Thread(() -> System.out.println(toString())).start();
-    }
+//    private void logPrint(ResultData<T> resultData) {
+//        new Thread(() -> LogUtil.getInstance(ResultData.class).debug(resultData.toString())).start();
+//    }
 }

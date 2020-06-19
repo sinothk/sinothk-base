@@ -3,7 +3,6 @@ package com.sinothk.base.entity;
 import com.alibaba.fastjson.JSON;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <pre>
@@ -24,9 +23,16 @@ public class PageData<T> {
     private int total;
 
     //是否有下一页
+    @Deprecated
     private boolean hasMore;
 
-    private List<T> data;
+    //是否有上一页
+    private boolean hasPrevious;
+
+    //是否有下一页
+    private boolean hasNext;
+
+    private ArrayList<T> data;
 
     public int getPageNum() {
         return pageNum;
@@ -52,11 +58,11 @@ public class PageData<T> {
         this.hasMore = hasMore;
     }
 
-    public List<T> getData() {
+    public ArrayList<T> getData() {
         return data;
     }
 
-    public void setData(List<T> data) {
+    public void setData(ArrayList<T> data) {
         this.data = data;
     }
 
@@ -66,6 +72,22 @@ public class PageData<T> {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public boolean isHasPrevious() {
+        return hasPrevious;
+    }
+
+    public void setHasPrevious(boolean hasPrevious) {
+        this.hasPrevious = hasPrevious;
+    }
+
+    public boolean isHasNext() {
+        return hasNext;
+    }
+
+    public void setHasNext(boolean hasNext) {
+        this.hasNext = hasNext;
     }
 
     @Override

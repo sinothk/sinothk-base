@@ -28,7 +28,7 @@ public class PageVo<T> {
     private int pageSize;
 
     @ApiModelProperty(value = "参数对象")
-    private T vo;
+    private T data;
 
 //    public int getPageNum() {
 //

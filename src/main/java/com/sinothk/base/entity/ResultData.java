@@ -47,14 +47,17 @@ public class ResultData<T> implements Serializable {
         return new ResultData<E>(ErrorCode.ERROR_COMM, msg, null);
     }
 
+    @Deprecated
     public static <E> ResultData<E> error(String msg, E errorInfo) {
         return new ResultData<E>(ErrorCode.ERROR_COMM, msg, errorInfo);
     }
 
+    @Deprecated
     public static <E> ResultData<E> error(int errorCode) {
         return new ResultData<E>(errorCode, ErrorCode.getErrorMsg(errorCode), null);
     }
 
+    @Deprecated
     public static <E> ResultData<E> error(int errorCode, String msg) {
         return new ResultData<E>(errorCode, msg, null);
     }

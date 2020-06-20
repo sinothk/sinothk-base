@@ -32,11 +32,6 @@ public class PageData<T> {
     @ApiModelProperty(value = "总条数")
     private long total;
 
-
-    //是否有下一页
-    @Deprecated
-    private boolean hasMore;
-
     @ApiModelProperty(value = "是否有上一页")
     private boolean hasPrevious;
 
@@ -47,66 +42,21 @@ public class PageData<T> {
     private List<T> data;
 
 
+    public PageData() {
+    }
 
-
-//    public int getPageNum() {
-//        return pageNum;
-//    }
-//
-//    public void setPageNum(int pageNum) {
-//        this.pageNum = pageNum;
-//    }
-//
-//    public int getPageSize() {
-//        return pageSize;
-//    }
-//
-//    public void setPageSize(int pageSize) {
-//        this.pageSize = pageSize;
-//    }
-//
-//    public boolean isHasMore() {
-//        return hasMore;
-//    }
-//
-//    public void setHasMore(boolean hasMore) {
-//        this.hasMore = hasMore;
-//    }
-//
-//    public ArrayList<T> getData() {
-//        return data;
-//    }
-//
-//    public void setData(ArrayList<T> data) {
+    public PageData(List<T> data, boolean hasNext) {
+        this.hasNext = hasNext;
+        this.data = data;
+    }
+//    public PageData(boolean hasNext, List<T> data) {
+//        this.hasNext = hasNext;
 //        this.data = data;
 //    }
-//
-//    public int getTotal() {
-//        return total;
-//    }
-//
-//    public void setTotal(int total) {
-//        this.total = total;
-//    }
-//
-//    public boolean isHasPrevious() {
-//        return hasPrevious;
-//    }
-//
-//    public void setHasPrevious(boolean hasPrevious) {
-//        this.hasPrevious = hasPrevious;
-//    }
-//
-//    public boolean isHasNext() {
-//        return hasNext;
-//    }
-//
-//    public void setHasNext(boolean hasNext) {
-//        this.hasNext = hasNext;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return JSON.toJSONString(this);
-//    }
+
+    // ===================================================================
+    //是否有下一页
+    @Deprecated
+    private boolean hasMore;
+
 }

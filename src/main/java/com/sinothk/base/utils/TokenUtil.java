@@ -32,6 +32,7 @@ public class TokenUtil {
         }
     }
 
+    @Deprecated
     public static String createToken(long expiryTime, String userName) {
         try {// https://www.cnblogs.com/zjutzz/p/5790180.html
             return Jwts.builder().setSubject(SUBJECT)
@@ -54,20 +55,28 @@ public class TokenUtil {
         }
     }
 
-    @Deprecated
-    public static String getUserName(String token) {
+    public static String getTokenValue(String token, String key) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("userName").asString();
+            return jwt.getClaim(key).asString();
         } catch (JWTDecodeException e) {
             return null;
         }
     }
 
-    public static String getTokenValue(String token, String key) {
+    public static String getAccount(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim(key).asString();
+            return jwt.getClaim("account").asString();
+        } catch (JWTDecodeException e) {
+            return null;
+        }
+    }
+
+    public static String getUserName(String token) {
+        try {
+            DecodedJWT jwt = JWT.decode(token);
+            return jwt.getClaim("userName").asString();
         } catch (JWTDecodeException e) {
             return null;
         }

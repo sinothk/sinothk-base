@@ -25,7 +25,7 @@ public class ResultData<T> implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "结果编码")
+    @ApiModelProperty(value = "结果编码：SUCCESS=200, ERROR=500")
     private int code;
 
     @ApiModelProperty(value = "结果描述")

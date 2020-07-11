@@ -1,7 +1,6 @@
 package com.sinothk.base.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sinothk.base.keyValue.ErrorCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,11 +13,6 @@ import java.io.Serializable;
 @Data
 @ToString
 public class ResultData<T> implements Serializable {
-
-    @JsonIgnore
-    public final int SUCCESS = 200;
-    @JsonIgnore
-    public final int ERROR = 500;
 
     /**
      *
@@ -69,11 +63,11 @@ public class ResultData<T> implements Serializable {
     }
 
     public ResultData<T> getSuccess(T data) {
-        return new ResultData<T>(SUCCESS, "成功", data);
+        return new ResultData<T>(ResultCode.SUCCESS, "成功", data);
     }
 
     public ResultData<T> getError(String msg) {
-        return new ResultData<>(ERROR, msg, null);
+        return new ResultData<>(ResultCode.ERROR, msg, null);
     }
 
 //    public int getCode() {

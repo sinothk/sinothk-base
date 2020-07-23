@@ -2,8 +2,6 @@ package com.sinothk.base.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.ToString;
 
 import java.util.List;
 
@@ -16,8 +14,6 @@ import java.util.List;
  * <pre>
  */
 @ApiModel(description = "分页结构")
-@Data
-@ToString
 public class PageData<T> {
 
     @ApiModelProperty(value = "当前页")
@@ -59,4 +55,67 @@ public class PageData<T> {
     @Deprecated
     private boolean hasMore;
 
+    public long getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(long pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public long getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(long pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public long getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(long current) {
+        this.current = current;
+    }
+
+    public long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+    public boolean isHasPrevious() {
+        return hasPrevious;
+    }
+
+    public void setHasPrevious(boolean hasPrevious) {
+        this.hasPrevious = hasPrevious;
+    }
+
+    public boolean isHasNext() {
+        return hasNext;
+    }
+
+    public void setHasNext(boolean hasNext) {
+        this.hasNext = hasNext;
+    }
+
+    public List<T> getData() {
+        return data;
+    }
+
+    public void setData(List<T> data) {
+        this.data = data;
+    }
+
+    public boolean isHasMore() {
+        return hasMore;
+    }
+
+    public void setHasMore(boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 }

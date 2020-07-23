@@ -4,14 +4,10 @@ package com.sinothk.base.entity;
 import com.sinothk.base.keyValue.ErrorCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serializable;
 
 @ApiModel(description = "服务器返回结构")
-@Data
-@ToString
 public class ResultData<T> implements Serializable {
 
     /**
@@ -70,36 +66,27 @@ public class ResultData<T> implements Serializable {
         return new ResultData<>(ResultCode.ERROR, msg, null);
     }
 
-//    public int getCode() {
-//        return code;
-//    }
-//
-//    public void setCode(int code) {
-//        this.code = code;
-//    }
-//
-//    public String getMsg() {
-//        return msg;
-//    }
-//
-//    public void setMsg(String msg) {
-//        this.msg = msg;
-//    }
-//
-//    public T getData() {
-//        return data;
-//    }
-//
-//    public void setData(T data) {
-//        this.data = data;
-//    }
+    public int getCode() {
+        return code;
+    }
 
-//    @Override
-//    public String toString() {
-//        return JSON.toJSONString(this);
-//    }
+    public void setCode(int code) {
+        this.code = code;
+    }
 
-//    private void logPrint(ResultData<T> resultData) {
-//        new Thread(() -> LogUtil.getInstance(ResultData.class).debug(resultData.toString())).start();
-//    }
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }

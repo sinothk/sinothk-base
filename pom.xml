@@ -23,11 +23,11 @@
         </dependency>
 
         <!--实体-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
 
         <!--API：swagger-bootstrap-ui-->
         <dependency>

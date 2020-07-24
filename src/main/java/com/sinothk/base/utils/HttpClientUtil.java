@@ -19,6 +19,7 @@ import java.security.cert.X509Certificate;
 import java.util.Map;
 
 public class HttpClientUtil {
+
 //    public String doPost(String url, Map<String,String> map) throws Exception{
 //        String result = null;
 //        HttpClient httpClient = new SSLClient();
